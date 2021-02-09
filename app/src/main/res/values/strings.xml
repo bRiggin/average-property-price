@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AveragePropertyPrice</string>
+    <string name="the_question">What is the average property price?</string>
 </resources>
