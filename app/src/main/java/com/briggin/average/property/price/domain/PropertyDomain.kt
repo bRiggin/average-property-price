@@ -1,3 +1,6 @@
 package com.briggin.average.property.price.domain
 
-data class PropertyDomain(val price: Long)
+sealed class PropertyDomain {
+    data class Success(val prices: List<Long>): PropertyDomain()
+    object Error: PropertyDomain()
+}

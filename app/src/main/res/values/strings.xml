@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">AveragePropertyPrice</string>
     <string name="the_question">What is the average property price?</string>
+
+    <string name="button_reload">reload</string>
+
+    <string name="error_no_prices">No property prices available</string>
+    <string name="error_unknown">An error occurred while getting property price average</string>
 </resources>

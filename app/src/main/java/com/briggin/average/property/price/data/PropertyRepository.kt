@@ -5,7 +5,9 @@ import com.briggin.average.property.price.domain.PropertyDomain
 
 class PropertyRepository(private val api: PropertyApi): PropertyDataSource {
 
-    override suspend fun getDomain(): List<PropertyDomain> {
-        TODO("Not yet implemented")
+    override suspend fun getDomain(): PropertyDomain = try {
+        PropertyDomain.Success(api.getProperties().properties.map { it.price })
+    } catch (e: Exception) {
+        PropertyDomain.Error
     }
 }
