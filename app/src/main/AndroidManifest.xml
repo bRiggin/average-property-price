@@ -3,6 +3,7 @@
     package="com.briggin.average.property.price">
 
     <application
+        android:name=".view.AveragePropertyPriceApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
