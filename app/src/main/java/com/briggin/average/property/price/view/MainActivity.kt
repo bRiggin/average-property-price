@@ -1,8 +1,8 @@
-package com.briggin.average.property.price
+package com.briggin.average.property.price.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.briggin.average.property.price.view.PropertyFragment
+import com.briggin.average.property.price.R
 
 class MainActivity : AppCompatActivity() {
 
