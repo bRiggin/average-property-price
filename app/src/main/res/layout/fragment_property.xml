@@ -9,12 +9,10 @@
 
     <TextView
         android:id="@+id/question"
+        style="@style/DefaultTextAppearance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:text="@string/the_question"
-        android:textColor="@color/berry"
-        android:textSize="@dimen/text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -22,13 +20,11 @@
 
     <TextView
         android:id="@+id/propertyAverageValue"
+        style="@style/DefaultTextAppearance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_question"
-        android:gravity="center"
         android:text="@string/the_question"
-        android:textColor="@color/berry"
-        android:textSize="@dimen/text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question"
