@@ -7,6 +7,7 @@ import com.briggin.average.property.price.domain.PropertyDataSource
 import com.briggin.average.property.price.domain.PropertyDomain
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import java.math.RoundingMode
 
 class PropertyViewModel(private val dataSource: PropertyDataSource) : ViewModel() {
 
@@ -17,14 +18,16 @@ class PropertyViewModel(private val dataSource: PropertyDataSource) : ViewModel(
     val error: Flow<Int?> = _error
 
     suspend fun getPropertyAverage() {
-        when (val domain = dataSource.getDomain()) {
-            is PropertyDomain.Success -> with(domain.prices) {
-                if (isEmpty()) emitError(R.string.error_no_prices)
-                else {
-                    _propertyAverage.emit((sum() / size).toString())
-                    _error.emit(null)
+        when (val domain = dataSource.getPropertyPrices()) {
+            is PropertyDomain.Success ->
+                with(domain.prices) {
+                    if (isEmpty()) {
+                        emitError(R.string.error_no_prices)
+                    } else {
+                        _propertyAverage.emit(average)
+                        _error.emit(null)
+                    }
                 }
-            }
             PropertyDomain.Error -> emitError(R.string.error_unknown)
         }
     }
@@ -34,3 +37,6 @@ class PropertyViewModel(private val dataSource: PropertyDataSource) : ViewModel(
         _propertyAverage.emit("")
     }
 }
+
+private val List<Long>.average: String get() =
+    toLongArray().average().toBigDecimal().setScale(2, RoundingMode.UP).toString()
